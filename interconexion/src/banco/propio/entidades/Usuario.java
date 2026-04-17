@@ -1,4 +1,4 @@
-package entidades;
+package banco.propio.entidades;
 
 public class Usuario {
     private String email;

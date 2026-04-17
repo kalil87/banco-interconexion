@@ -1,7 +1,7 @@
-package Banco;
+package banco.socio.Banco;
 
-import Paneles.InterfazMenu;
-import Proxy.Proxy;
+import banco.socio.Paneles.InterfazMenu;
+import banco.socio.Proxy.Proxy;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

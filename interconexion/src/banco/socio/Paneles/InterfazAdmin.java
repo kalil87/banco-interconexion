@@ -1,6 +1,6 @@
-package Paneles;
-import Banco.Banco;
-import Banco.Cuenta;
+package banco.socio.Paneles;
+import banco.socio.Banco.Banco;
+import banco.socio.Banco.Cuenta;
 
 import java.util.Scanner;
 

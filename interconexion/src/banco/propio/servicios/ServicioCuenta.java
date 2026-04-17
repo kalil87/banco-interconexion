@@ -1,11 +1,11 @@
-package servicios;
+package banco.propio.servicios;
 
-import entidades.Cuenta;
-import entidades.Sucursal;
-import entidades.TipoCuenta;
-import entidades.Usuario;
-import repositorios.RepositorioCuenta;
-import repositorios.RepositorioSucursal;
+import banco.propio.entidades.Cuenta;
+import banco.propio.entidades.Sucursal;
+import banco.propio.entidades.TipoCuenta;
+import banco.propio.entidades.Usuario;
+import banco.propio.repositorios.RepositorioCuenta;
+import banco.propio.repositorios.RepositorioSucursal;
 
 import java.util.List;
 

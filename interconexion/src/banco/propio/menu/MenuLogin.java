@@ -1,7 +1,7 @@
-package menu;
+package banco.propio.menu;
 
-import entidades.Usuario;
-import servicios.ServicioUsuario;
+import banco.propio.entidades.Usuario;
+import banco.propio.servicios.ServicioUsuario;
 
 import java.util.Scanner;
 

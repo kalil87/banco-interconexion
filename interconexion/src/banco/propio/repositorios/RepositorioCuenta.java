@@ -1,6 +1,6 @@
-package repositorios;
+package banco.propio.repositorios;
 
-import entidades.Cuenta;
+import banco.propio.entidades.Cuenta;
 
 import java.util.ArrayList;
 import java.util.List;

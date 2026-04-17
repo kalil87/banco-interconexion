@@ -1,6 +1,6 @@
-package Banco;
-import Builder.BuilderCuenta;
-import Builder.Director;
+package banco.socio.Banco;
+import banco.socio.Builder.BuilderCuenta;
+import banco.socio.Builder.Director;
 import java.util.ArrayList;
 
 public class Banco {

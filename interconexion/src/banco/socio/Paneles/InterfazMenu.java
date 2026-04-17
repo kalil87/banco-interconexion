@@ -1,9 +1,9 @@
-package Paneles;
-import Banco.Banco;
-import Banco.Cuenta;
-import Builder.BuilderCuenta;
-import Builder.Director;
-import Proxy.Proxy;
+package banco.socio.Paneles;
+import banco.socio.Banco.Banco;
+import banco.socio.Banco.Cuenta;
+import banco.socio.Builder.BuilderCuenta;
+import banco.socio.Builder.Director;
+import banco.socio.Proxy.Proxy;
 import java.util.Scanner;
 
 

@@ -1,9 +1,9 @@
-package servicios;
+package banco.propio.servicios;
 
-import entidades.Cuenta;
-import entidades.Sucursal;
-import repositorios.RepositorioCuenta;
-import repositorios.RepositorioSucursal;
+import banco.propio.entidades.Cuenta;
+import banco.propio.entidades.Sucursal;
+import banco.propio.repositorios.RepositorioCuenta;
+import banco.propio.repositorios.RepositorioSucursal;
 
 public class ServicioSucursal {
     private RepositorioSucursal repoS;

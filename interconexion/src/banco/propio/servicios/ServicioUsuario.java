@@ -1,9 +1,9 @@
-package servicios;
+package banco.propio.servicios;
 
-import entidades.Cuenta;
-import entidades.Rol;
-import entidades.Usuario;
-import repositorios.RepositorioUsuario;
+import banco.propio.entidades.Cuenta;
+import banco.propio.entidades.Rol;
+import banco.propio.entidades.Usuario;
+import banco.propio.repositorios.RepositorioUsuario;
 
 public class ServicioUsuario {
     private RepositorioUsuario repo;

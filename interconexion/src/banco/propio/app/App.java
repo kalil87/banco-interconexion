@@ -1,10 +1,10 @@
-package app;
+package banco.propio.app;
 
-import app.config.InicializarDatos;
-import repositorios.RepositorioCuenta;
-import repositorios.RepositorioSucursal;
-import repositorios.RepositorioUsuario;
-import servicios.*;
+import banco.propio.app.config.InicializarDatos;
+import banco.propio.repositorios.RepositorioCuenta;
+import banco.propio.repositorios.RepositorioSucursal;
+import banco.propio.repositorios.RepositorioUsuario;
+import banco.propio.servicios.*;
 
 public class App {
 
