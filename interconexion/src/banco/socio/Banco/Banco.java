@@ -1,6 +1,6 @@
 package banco.socio.Banco;
-import banco.socio.Builder.BuilderCuenta;
-import banco.socio.Builder.Director;
+import banco.socio.builders.BuilderCuenta;
+import banco.socio.builders.Director;
 import java.util.ArrayList;
 
 public class Banco {
@@ -36,5 +36,14 @@ public class Banco {
             }
             System.out.println("El balance total de la sucursal es de: $" + saldoTotal);
         }
+    }
+
+    public boolean buscarCuenta(ArrayList<Cuenta> cuentas, int cbu){
+        boolean cuentaEncontrada = false;
+        for (Cuenta c : cuentas){
+            if (c.cbu == cbu)
+                return true;
+        }
+        return false;
     }
 }

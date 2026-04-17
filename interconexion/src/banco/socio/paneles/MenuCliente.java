@@ -1,21 +1,22 @@
-package banco.socio.Paneles;
+package banco.socio.paneles;
 import banco.socio.Banco.Cuenta;
 import banco.socio.Banco.Banco;
 import java.util.Scanner;
 
-public class InterfazCliente {
+public class MenuCliente {
 
 
     public void panelCliente(Cuenta cuenta, Banco banco){
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
 
-        while(opcion != 3){
+        while(opcion != 4){
 
             System.out.println("¡Bienvenido " + cuenta.nombre + " a la sucursal " + banco.sucursal);
             System.out.println("1. Tranferir");
             System.out.println("2. Consultar saldo de la cuenta");
-            System.out.println("3. Salir");
+            System.out.println("3. Depositar");
+            System.out.println("4. Salir");
             System.out.println("Seleccione una opción");
             opcion = sc.nextInt();
 
@@ -49,6 +50,12 @@ public class InterfazCliente {
                     break;
 
                 case 3:
+                    System.out.println("Ingrese monto a depositar");
+                    double montoDepo = sc.nextInt();
+                    cuenta.deposito(montoDepo);
+                    System.out.println("Deposito exitoso, su nuevo saldo es de: $" + cuenta.saldo);
+                    break;
+                case 4:
                     break;
 
                 default:

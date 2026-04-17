@@ -1,27 +1,30 @@
-package banco.socio.Builder;
+package banco.socio.builders;
 import banco.socio.Banco.Rol;
 
 
+
 public class Director {
-    public void constructCuentaAhorro(Builder builder, String nombre, String direccion, String pass){
+    public void constructCuentaAhorro(BuilderCuenta builder, String nombre, String direccion, String pass, int cbu){
         builder.reset();
         builder.setNombre(nombre);
         builder.setDireccion(direccion);
         builder.setTipo("Ahorro");
         builder.setRol(Rol.CLIENTE);
         builder.setPass(pass);
+        builder.setCbu(cbu);
     }
 
-    public void constructCuentaCorriente(Builder builder, String nombre, String direccion, String pass){
+    public void constructCuentaCorriente(BuilderCuenta builder, String nombre, String direccion, String pass, int cbu){
         builder.reset();
         builder.setNombre(nombre);
         builder.setDireccion(direccion);
         builder.setTipo("Corriente");
         builder.setRol(Rol.CLIENTE);
         builder.setPass(pass);
+        builder.setCbu(cbu);
     }
 
-    public void constructCuentaAdmin(Builder builder, String nombre, String direccion, String pass){
+    public void constructCuentaAdmin(BuilderCuenta builder, String nombre, String direccion, String pass){
         builder.reset();
         builder.setNombre(nombre);
         builder.setDireccion(direccion);

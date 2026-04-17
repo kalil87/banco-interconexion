@@ -1,7 +1,7 @@
-package banco.socio.Builder;
+package banco.socio.interfaces;
 import banco.socio.Banco.Rol;
 
-interface Builder{
+public interface Builder{
     void reset();
     void setNombre(String nombre);
     void setDireccion(String direccion);

@@ -1,23 +1,23 @@
-package banco.socio.Paneles;
+package banco.socio.paneles;
 import banco.socio.Banco.Banco;
 import banco.socio.Banco.Cuenta;
-import banco.socio.Builder.BuilderCuenta;
-import banco.socio.Builder.Director;
+import banco.socio.builders.BuilderCuenta;
+import banco.socio.builders.Director;
 import banco.socio.Proxy.Proxy;
 import java.util.Scanner;
 
 
-public class InterfazMenu {
+public class MenuPrincipal {
 
     private Banco banco;
     private Proxy proxy;
     private Scanner sc = new Scanner(System.in);
     Director director = new Director();
     BuilderCuenta builder = new BuilderCuenta();
-    InterfazCliente interfazCliente = new InterfazCliente();
-    InterfazAdmin interfazAdmin = new InterfazAdmin();
+    MenuCliente interfazCliente = new MenuCliente();
+    MenuAdmin interfazAdmin = new MenuAdmin();
 
-    public InterfazMenu (Banco banco, Proxy proxy){
+    public MenuPrincipal(Banco banco, Proxy proxy){
         this.banco = banco;
         this.proxy = proxy;
     }
@@ -52,18 +52,20 @@ public class InterfazMenu {
                 String direc = sc.nextLine();
                 System.out.println("Ingrese contraseña");
                 String pass = sc.nextLine();
+                System.out.println("Ingrese CBU");
+                int cbu = sc.nextInt();
                 System.out.println("Ingrese tipo de cuenta \\ 1. Ahorro   2. Corriente");
                 int optipo = sc.nextInt();
 
                 if (optipo == 1 || optipo == 2){
                     if (optipo == 1){
-                        director.constructCuentaAhorro(builder, nombre, direc, pass);
+                        director.constructCuentaAhorro(builder, nombre, direc, pass, cbu);
                         Cuenta usuario = builder.getCuenta();
                         banco.añadirCuenta(usuario);
                         System.out.println("Creaste tu cuenta de ahorro con exito.");
                     }
                     else{
-                        director.constructCuentaCorriente(builder, nombre, direc, pass);
+                        director.constructCuentaCorriente(builder, nombre, direc, pass, cbu);
                         Cuenta usuario = builder.getCuenta();
                         banco.añadirCuenta(usuario);
                         System.out.println("Creaste tu cuenta corriente con exito.");

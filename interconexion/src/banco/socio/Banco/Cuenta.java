@@ -1,6 +1,5 @@
 package banco.socio.Banco;
 
-
 public class Cuenta {
 
     public String nombre;
@@ -10,6 +9,7 @@ public class Cuenta {
     public double saldo;
     public boolean activo = true;
     public Rol rol;
+    public int cbu;
 
     public void mostrarInfo(){
         if(activo)
@@ -26,6 +26,15 @@ public class Cuenta {
         }
         else
             System.out.println("Saldo insuficiente para realizar esta operación o cuenta inactiva");
+    }
+
+    public void deposito(double monto){
+        if (monto >= 0){
+            saldo +=monto;
+            System.out.println("Deposito exitoso");
+        }
+        else
+            System.out.println("lol");
     }
 }
 

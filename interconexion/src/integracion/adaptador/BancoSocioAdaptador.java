@@ -1,6 +1,13 @@
 package integracion.adaptador;
 
 
-public class BancoSocioAdaptador {
+import integracion.dto.DatosTransferencia;
+import integracion.interfaz.BancoExterno;
 
+public class BancoSocioAdaptador implements BancoExterno {
+
+    @Override
+    public void depositoExterno(DatosTransferencia datosTransferencia) {
+
+    }
 }

@@ -1,10 +1,10 @@
-package banco.socio.Paneles;
+package banco.socio.paneles;
 import banco.socio.Banco.Banco;
 import banco.socio.Banco.Cuenta;
 
 import java.util.Scanner;
 
-public class InterfazAdmin {
+public class MenuAdmin {
     public void panelAdmin(Cuenta cuenta, Banco banco){
 
         Scanner sc = new Scanner(System.in);
