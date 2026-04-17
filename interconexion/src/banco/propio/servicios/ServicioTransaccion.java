@@ -1,6 +1,6 @@
-package servicios;
+package banco.propio.servicios;
 
-import entidades.Cuenta;
+import banco.propio.entidades.Cuenta;
 
 public class ServicioTransaccion {
 

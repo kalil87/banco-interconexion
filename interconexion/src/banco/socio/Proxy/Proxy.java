@@ -1,7 +1,7 @@
-package Proxy;
+package banco.socio.Proxy;
 
 
-import Banco.Cuenta;
+import banco.socio.Banco.Cuenta;
 
 import java.util.ArrayList;
 

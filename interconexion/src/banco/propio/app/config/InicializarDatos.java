@@ -1,8 +1,8 @@
-package app.config;
+package banco.propio.app.config;
 
-import entidades.*;
-import servicios.ServicioCuenta;
-import servicios.ServicioUsuario;
+import banco.propio.entidades.*;
+import banco.propio.servicios.ServicioCuenta;
+import banco.propio.servicios.ServicioUsuario;
 
 public class InicializarDatos {
     public static void cargar(ServicioCuenta servicioC, ServicioUsuario servicioU) {

@@ -1,6 +1,6 @@
-package Paneles;
-import Banco.Cuenta;
-import Banco.Banco;
+package banco.socio.Paneles;
+import banco.socio.Banco.Cuenta;
+import banco.socio.Banco.Banco;
 import java.util.Scanner;
 
 public class InterfazCliente {

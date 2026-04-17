@@ -1,11 +1,11 @@
-package app;
+package banco.propio.app;
 
-import entidades.Rol;
-import entidades.Usuario;
-import menu.MenuAdmin;
-import menu.MenuCliente;
-import menu.MenuLogin;
-import servicios.*;
+import banco.propio.entidades.Rol;
+import banco.propio.entidades.Usuario;
+import banco.propio.menu.MenuAdmin;
+import banco.propio.menu.MenuCliente;
+import banco.propio.menu.MenuLogin;
+import banco.propio.servicios.*;
 
 public class NavegadorMenus {
 

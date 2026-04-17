@@ -1,5 +1,5 @@
-package Builder;
-import Banco.Rol;
+package banco.socio.Builder;
+import banco.socio.Banco.Rol;
 
 
 public class Director {

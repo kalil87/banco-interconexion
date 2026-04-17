@@ -1,10 +1,10 @@
-package menu;
+package banco.propio.menu;
 
-import entidades.*;
-import servicios.ServicioBanco;
-import servicios.ServicioCuenta;
-import servicios.ServicioSucursal;
-import servicios.ServicioUsuario;
+import banco.propio.entidades.*;
+import banco.propio.servicios.ServicioBanco;
+import banco.propio.servicios.ServicioCuenta;
+import banco.propio.servicios.ServicioSucursal;
+import banco.propio.servicios.ServicioUsuario;
 
 import java.util.Scanner;
 
