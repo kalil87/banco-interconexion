@@ -1,32 +1,37 @@
 package banco.propio.entidades;
 
+import banco.propio.app.App;
+import banco.propio.app.config.ContextoApp;
+import banco.propio.repositorios.RepositorioUsuario;
+import integracion.interfaz.MediadorBanco;
+import integracion.servicio.RedBancaria;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Banco {
-    private String nombre;
-    private String direccion;
-    private List<Sucursal> sucursales;
+public class Banco implements MediadorBanco {
     private static Banco instancia;
+    private RepositorioUsuario repoU;
 
-    private Banco(String nombre, String direccion) {
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.sucursales = new ArrayList<>();
+    private Banco() {
     }
 
-    public static Banco getInstance(String nombre, String direccion) {
+    public static Banco getInstance() {
         if (instancia == null) {
-            instancia = new Banco(nombre, direccion);
+            instancia = new Banco();
+            RedBancaria.getInstance().registrarBanco(instancia);
+            instancia.repoU = ContextoApp.getRepositorioUsuario();
         }
         return instancia;
     }
 
-    public List<Sucursal> getSucursales() {
-        return sucursales;
+    @Override
+    public boolean existeCuenta(String cbu) {
+        return false;
     }
 
-    public void setSucursales(List<Sucursal> sucursales) {
-        this.sucursales = sucursales;
+    @Override
+    public void recibirTransferencia(String cbuDestino, double monto) {
+
     }
 }
