@@ -5,24 +5,21 @@ import banco.propio.servicios.ServicioCuenta;
 import banco.propio.servicios.ServicioUsuario;
 
 public class InicializarDatos {
-    public static void cargar(ServicioCuenta servicioC, ServicioUsuario servicioU) {
-
-        Banco banco = Banco.getInstance("Banco", "Argentina");
-        banco.setSucursales(servicioC.obtenerSucursales());
+    public static void cargar() {
 
         Sucursal s1 = new Sucursal("001", "Centro");
         Sucursal s2 = new Sucursal("002", "Palermo");
 
-        servicioC.guardarSucursal(s1);
-        servicioC.guardarSucursal(s2);
+        ContextoApp.getServicioCuenta().guardarSucursal(s1);
+        ContextoApp.getServicioCuenta().guardarSucursal(s2);
 
         Usuario u1 = new Usuario("cliente1@mail.com", "1234", Rol.CLIENTE);
         Usuario u2 = new Usuario("cliente2@mail.com", "1234", Rol.CLIENTE);
         Usuario a1 = new Usuario("admin1@mail.com", "admin", Rol.ADMIN);
 
-        servicioU.guardar(u1);
-        servicioU.guardar(u2);
-        servicioU.guardar(a1);
+        ContextoApp.getServicioUsuario().guardar(u1);
+        ContextoApp.getServicioUsuario().guardar(u2);
+        ContextoApp.getServicioUsuario().guardar(a1);
 
         Cuenta c1 = Cuenta.builder()
                 .id("1")
@@ -46,7 +43,7 @@ public class InicializarDatos {
         s1.agregarCuenta(c1);
         s2.agregarCuenta(c2);
 
-        servicioC.guardarCuenta(c1);
-        servicioC.guardarCuenta(c2);
+        ContextoApp.getServicioCuenta().guardarCuenta(c1);
+        ContextoApp.getServicioCuenta().guardarCuenta(c2);
     }
 }

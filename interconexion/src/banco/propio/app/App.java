@@ -1,5 +1,6 @@
 package banco.propio.app;
 
+import banco.propio.app.config.ContextoApp;
 import banco.propio.app.config.InicializarDatos;
 import banco.propio.repositorios.RepositorioCuenta;
 import banco.propio.repositorios.RepositorioSucursal;
@@ -12,16 +13,8 @@ public class App {
 
     public static void run() {
         Scanner sc = new Scanner(System.in);
-        RepositorioCuenta repoC = new RepositorioCuenta();
-        RepositorioSucursal repoS = new RepositorioSucursal();
-        RepositorioUsuario repoU = new RepositorioUsuario();
-        ServicioCuenta servicioCuenta = new ServicioCuenta(repoC, repoS);
-        ServicioUsuario servicioUsuario = new ServicioUsuario(repoU);
-        ServicioBanco servicioBanco = new ServicioBanco(repoS);
-        ServicioSucursal servicioSucursal = new ServicioSucursal(repoS, repoC);
-        ServicioTransaccion servicioTransaccion = new ServicioTransaccion();
 
-        InicializarDatos.cargar(servicioCuenta, servicioUsuario);
+        InicializarDatos.cargar();
 
         while (true) {
 
@@ -32,11 +25,11 @@ public class App {
 
             switch (op) {
                 case 1 -> NavegadorMenus.iniciar(
-                        servicioUsuario,
-                        servicioCuenta,
-                        servicioTransaccion,
-                        servicioBanco,
-                        servicioSucursal
+                        ContextoApp.getServicioUsuario(),
+                        ContextoApp.getServicioCuenta(),
+                        ContextoApp.getServicioTransaccion(),
+                        ContextoApp.getServicioBanco(),
+                        ContextoApp.getServicioSucursal()
                 );
                 case 2 -> {
                     return;
