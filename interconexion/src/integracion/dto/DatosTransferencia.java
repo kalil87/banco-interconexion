@@ -6,14 +6,9 @@ public class DatosTransferencia {
     private int numCuenta;
     private double monto;
 
-    public DatosTransferencia(String destinatario, int numCuenta, double monto) {
-        this.destinatario = destinatario;
+    public DatosTransferencia(int numCuenta, double monto) {
         this.monto = monto;
         this.numCuenta = numCuenta;
-    }
-
-    public String getDestinatario(){
-        return destinatario;
     }
 
     public double getMonto(){

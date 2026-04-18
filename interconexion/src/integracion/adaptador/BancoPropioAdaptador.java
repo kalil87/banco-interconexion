@@ -17,7 +17,7 @@ public class BancoPropioAdaptador implements BancoExterno {
     }
 
     @Override
-    public void recibirDepositoExterno(String cbu, double monto) {
+    public void recibirDepositoExterno(DatosTransferencia datosTransferencia) {
 
     }
 }

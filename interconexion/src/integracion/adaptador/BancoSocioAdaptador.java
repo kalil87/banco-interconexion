@@ -20,8 +20,18 @@ public class BancoSocioAdaptador implements BancoExterno {
         double monto = datosTransferencia.getMonto();
 
         for (Cuenta c : banco.personas){
-            if (c.cbu == cbu)
-                c.saldo *= monto;
+            if (c.cbu == cbu){
+                c.saldo += monto;
+                System.out.println("Tranferencia exitosa");
+            }
+            else
+                System.out.println("No se encontro el CBU");
+
         }
+    }
+
+    @Override
+    public void recibirDepositoExterno(DatosTransferencia datosTransferencia) {
+
     }
 }
