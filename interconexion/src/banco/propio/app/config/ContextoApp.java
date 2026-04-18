@@ -13,7 +13,7 @@ public class ContextoApp {
         private static final ServicioUsuario servicioUsuario = new ServicioUsuario(repoU);
         private static final ServicioBanco servicioBanco = new ServicioBanco(repoS);
         private static final ServicioSucursal servicioSucursal = new ServicioSucursal(repoS, repoC);
-        private static final ServicioTransaccion servicioTransaccion = new ServicioTransaccion();
+        private static final ServicioTransaccion servicioTransaccion = new ServicioTransaccion(servicioCuenta);
 
         public static RepositorioCuenta getRepositorioCuenta() {
             return repoC;

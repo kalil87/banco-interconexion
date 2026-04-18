@@ -7,7 +7,6 @@ import java.util.List;
 
 public class RedBancaria {
     private static RedBancaria instancia;
-
     private List<MediadorBanco> bancos = new ArrayList<>();
 
     private RedBancaria() {}
@@ -23,7 +22,7 @@ public class RedBancaria {
         bancos.add(banco);
     }
 
-    public void transferir(String cbuOrigen, String cbuDestino, double monto) {
+    public void transferir(String cbuDestino, double monto) {
 
         for (MediadorBanco banco : bancos) {
             if (banco.existeCuenta(cbuDestino)) {
