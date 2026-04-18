@@ -1,15 +1,16 @@
 package integracion;
 
 import banco.propio.app.App;
+import banco.propio.entidades.Banco;
 import banco.socio.Banco.Aplicacion;
 
 import java.util.Scanner;
 
 public class MenuGeneral {
-    Scanner sc = new Scanner(System.in);
-    int opcion;
+    public static void iniciar() {
 
-    public void iniciar() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
 
         System.out.println("\n--- CONEXION TEST ---");
 
