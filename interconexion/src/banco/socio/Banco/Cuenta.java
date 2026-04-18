@@ -1,4 +1,5 @@
 package banco.socio.Banco;
+import integracion.servicio.RedBancaria;
 
 public class Cuenta {
 
@@ -27,6 +28,19 @@ public class Cuenta {
         else
             System.out.println("Saldo insuficiente para realizar esta operación o cuenta inactiva");
     }
+
+    private void transferenciaExterna(int cbuDestino, double monto) {
+        try {
+
+            RedBancaria.getInstance().transferir(String.valueOf(this.cbu), String.valueOf(cbuDestino), monto);
+            this.saldo -= monto;
+            System.out.println("Transferencia enviada. Su saldo actual es de: $" + this.saldo);
+
+        } catch (RuntimeException e) {
+            System.out.println("Error red bancaria: " + e.getMessage());
+        }
+    }
+
 
     public void deposito(double monto){
         if (monto >= 0){
