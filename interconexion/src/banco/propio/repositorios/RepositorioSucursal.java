@@ -14,7 +14,7 @@ public class RepositorioSucursal {
 
     public void eliminar(String numero) {
 
-        sucursales.removeIf(c -> c.getNumero().equals(numero));
+        sucursales.removeIf(s -> s.getNumero().equals(numero));
     }
 
     public Sucursal buscarPorId(String numero) {

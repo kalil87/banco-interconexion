@@ -1,8 +1,6 @@
 package banco.propio.app.config;
 
 import banco.propio.entidades.*;
-import banco.propio.servicios.ServicioCuenta;
-import banco.propio.servicios.ServicioUsuario;
 
 public class InicializarDatos {
     public static void cargar() {
@@ -45,5 +43,7 @@ public class InicializarDatos {
 
         ContextoApp.getServicioCuenta().guardarCuenta(c1);
         ContextoApp.getServicioCuenta().guardarCuenta(c2);
+
+        Banco bancoKalil = Banco.getInstance();
     }
 }

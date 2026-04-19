@@ -14,7 +14,7 @@ public class App {
     public static void run() {
         Scanner sc = new Scanner(System.in);
 
-        InicializarDatos.cargar();
+        //InicializarDatos.cargar();
 
         while (true) {
 
