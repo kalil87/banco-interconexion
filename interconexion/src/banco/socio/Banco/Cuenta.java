@@ -11,6 +11,7 @@ public class Cuenta {
     public boolean activo = true;
     public Rol rol;
     public int cbu;
+    public Banco bancoCuenta;
 
     public void mostrarInfo(){
         if(activo)
@@ -19,20 +20,35 @@ public class Cuenta {
             System.out.println("Esta cuenta no se encuentra activa");
     }
 
-    public void tranferir(Cuenta c, int monto){
-        if (this.activo && c.activo && this.saldo >=monto ){
-            this.saldo -= monto;
-            c.saldo += monto;
-            System.out.println("Se realizo la transferencia correctamente, saldo actual: $" + this.saldo);
-        }
-        else
-            System.out.println("Saldo insuficiente para realizar esta operación o cuenta inactiva");
-    }
+    public void tranferir(int cbu, int monto) {
+        boolean cuentaLocal = bancoCuenta.buscarCuenta(bancoCuenta.personas, cbu);
 
-    private void transferenciaExterna(int cbuDestino, double monto) {
+        if (!this.activo) {
+            System.out.println("Tu cuenta está inhabilitada.");
+            return;
+        }
+        if (this.saldo < monto) {
+            System.out.println("Saldo insuficiente.");
+            return;
+        }
+
+        if (cuentaLocal) {
+            this.saldo -= monto;
+            for (Cuenta c : bancoCuenta.personas) {
+                if (c.cbu == cbu) {
+                    c.saldo += monto;
+                    System.out.println("Se realizo la transferencia correctamente, saldo actual: $" + this.saldo);
+                    break;
+                }
+            }
+        } else {
+            transferenciaExterna(cbu, monto);
+        }
+    }
+    private void transferenciaExterna(int cbu, double monto) {
         try {
 
-            RedBancaria.getInstance().transferir(String.valueOf(this.cbu), String.valueOf(cbuDestino), monto);
+            RedBancaria.getInstance().transferir(String.valueOf(this.cbu), monto);
             this.saldo -= monto;
             System.out.println("Transferencia enviada. Su saldo actual es de: $" + this.saldo);
 

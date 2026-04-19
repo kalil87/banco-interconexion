@@ -1,4 +1,5 @@
 package banco.socio.builders;
+import banco.socio.Banco.Banco;
 import banco.socio.Banco.Cuenta;
 import banco.socio.Banco.Rol;
 import banco.socio.interfaces.Builder;
@@ -30,6 +31,7 @@ public class BuilderCuenta implements Builder {
         this.cuenta.password = pass;
     }
     public void setCbu (int cbu) {this.cuenta.cbu = cbu;}
+    public void setBanco (Banco banco) {this.cuenta.bancoCuenta = banco;}
     public Cuenta getCuenta(){
         Cuenta cuenta = this.cuenta;
         this.reset();

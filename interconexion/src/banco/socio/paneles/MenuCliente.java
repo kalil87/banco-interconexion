@@ -37,7 +37,7 @@ public class MenuCliente {
                     for (Cuenta c : banco.personas){
                         if (c.nombre.equals(destinatario)) {
                             transferir = true;
-                            cuenta.tranferir(c, monto);
+                            cuenta.tranferir(c.cbu, monto);
                         }
                     }
                     if (!transferir)

@@ -19,6 +19,7 @@ public class Banco {
 
     public void añadirCuenta(Cuenta c){
         personas.add(c);
+        builder.setBanco(this);
         System.out.println("Usuario " + c.nombre + " registrado exitosamente");
     }
 
