@@ -1,39 +1,26 @@
 package banco.propio.entidades;
 
 import banco.propio.app.config.ContextoApp;
-import banco.propio.repositorios.RepositorioCuenta;
-import banco.propio.repositorios.RepositorioSucursal;
-import banco.propio.repositorios.RepositorioUsuario;
 import banco.propio.servicios.*;
 import integracion.interfaz.MediadorBanco;
 import integracion.servicio.RedBancaria;
 
 public class Banco implements MediadorBanco {
     private static Banco instancia;
-    private RepositorioUsuario repoU;
-    private RepositorioSucursal repoS;
-    private RepositorioCuenta repoC;
-    private ServicioUsuario serviU;
-    private ServicioSucursal serviS;
-    private ServicioCuenta serviC;
-    private ServicioTransaccion serviT;
-    private ServicioBanco serviB;
+    private String id;
+    private final ServicioCuenta serviC;
+    private final ServicioTransaccion serviT;
 
     private Banco() {
+        this.id = "0123";
+        this.serviC = ContextoApp.getServicioCuenta();
+        this.serviT = ContextoApp.getServicioTransaccion();
+        RedBancaria.getInstance().registrarBanco(this);
     }
 
     public static Banco getInstance() {
         if (instancia == null) {
             instancia = new Banco();
-            instancia.repoU = ContextoApp.getRepositorioUsuario();
-            instancia.repoS = ContextoApp.getRepositorioSucursal();
-            instancia.repoC = ContextoApp.getRepositorioCuenta();
-            instancia.serviU = ContextoApp.getServicioUsuario();
-            instancia.serviS = ContextoApp.getServicioSucursal();
-            instancia.serviC = ContextoApp.getServicioCuenta();
-            instancia.serviT = ContextoApp.getServicioTransaccion();
-            instancia.serviB = ContextoApp.getServicioBanco();
-            RedBancaria.getInstance().registrarBanco(instancia);
         }
         return instancia;
     }

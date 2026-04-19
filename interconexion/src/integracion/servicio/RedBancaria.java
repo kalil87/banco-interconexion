@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RedBancaria {
     private static RedBancaria instancia;
-    private List<MediadorBanco> bancos = new ArrayList<>();
+    private final List<MediadorBanco> bancos = new ArrayList<>();
 
     private RedBancaria() {}
 
@@ -33,5 +33,4 @@ public class RedBancaria {
 
         throw new RuntimeException("CBU no encontrado");
     }
-
 }

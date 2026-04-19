@@ -70,6 +70,7 @@ public class MenuAdmin {
                     Cuenta cuenta = servicioCuenta.obtenerCuentaPorId(idCuenta);
                     servicioCuenta.eliminarCuenta(cuenta);
                     servicioUsuario.eliminarUsuarioPorCuenta(cuenta);
+                    servicioSucursal.
 
                     System.out.println("Se elimino la cuenta numero: " + idCuenta + " de la Sucursal " + numeroSucursal);
                 }

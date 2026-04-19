@@ -47,6 +47,7 @@ public class ServicioCuenta {
 
     public void eliminarCuenta(Cuenta c) {
         repoC.eliminar(c.getId());
+        //remover cuenta de sucursal
     }
 
     public Sucursal validarSucursal(String numero) {
