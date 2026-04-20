@@ -20,7 +20,7 @@ public class Banco implements MediadorBanco {
     }
 
     public void añadirCuenta(Cuenta c){
-        builder.setBanco(this);
+        c.bancoCuenta = this;
         personas.add(c);
         System.out.println("Usuario " + c.nombre + " registrado exitosamente");
     }
