@@ -3,7 +3,6 @@ package banco.propio.entidades;
 import banco.propio.app.config.ContextoApp;
 import banco.propio.servicios.*;
 import integracion.interfaz.MediadorBanco;
-import integracion.servicio.RedBancaria;
 
 public class Banco implements MediadorBanco {
     private static Banco instancia;
@@ -15,7 +14,6 @@ public class Banco implements MediadorBanco {
         this.id = "0123";
         this.serviC = ContextoApp.getServicioCuenta();
         this.serviT = ContextoApp.getServicioTransaccion();
-        RedBancaria.getInstance().registrarBanco(this);
     }
 
     public static Banco getInstance() {

@@ -37,12 +37,7 @@ public class ServicioSucursal {
         cuenta.setSucursal(sucursalDestino);
     }
 
-    private void eliminarCuentaDeSucursal(Cuenta c) {
-
-    }
-
     public void eliminarCuenta(String numero,Cuenta c) {
         Sucursal sucursal = repoS.buscarPorId(numero);
-
     }
 }

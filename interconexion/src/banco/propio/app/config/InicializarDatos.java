@@ -43,7 +43,5 @@ public class InicializarDatos {
 
         ContextoApp.getServicioCuenta().guardarCuenta(c1);
         ContextoApp.getServicioCuenta().guardarCuenta(c2);
-
-        Banco bancoKalil = Banco.getInstance();
     }
 }

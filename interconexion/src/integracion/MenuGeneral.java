@@ -1,7 +1,6 @@
 package integracion;
 
 import banco.propio.app.App;
-import banco.propio.entidades.Banco;
 import banco.socio.Banco.Aplicacion;
 
 import java.util.Scanner;
