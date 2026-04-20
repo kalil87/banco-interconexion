@@ -9,7 +9,9 @@ public class RedBancaria {
     private static RedBancaria instancia;
     private final List<MediadorBanco> bancos = new ArrayList<>();
 
-    private RedBancaria() {}
+    private RedBancaria() {
+
+    }
 
     public static RedBancaria getInstance() {
         if (instancia == null) {
@@ -22,15 +24,15 @@ public class RedBancaria {
         bancos.add(banco);
     }
 
-    public void transferir(String cbuDestino, double monto) {
+    public boolean transferir(String cbuDestino, double monto) {
 
         for (MediadorBanco banco : bancos) {
             if (banco.existeCuenta(cbuDestino)) {
                 banco.recibirTransferencia(cbuDestino, monto);
-                return;
+                return true;
             }
         }
 
-        throw new RuntimeException("CBU no encontrado");
+        return false;
     }
 }
