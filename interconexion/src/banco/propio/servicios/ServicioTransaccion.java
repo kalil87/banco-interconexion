@@ -7,9 +7,9 @@ public class ServicioTransaccion {
     private ServicioCuenta servicioCuenta;
     private RedBancaria redBancaria;
 
-    public ServicioTransaccion(ServicioCuenta servicioCuenta) {
+    public ServicioTransaccion(ServicioCuenta servicioCuenta, RedBancaria red) {
         this.servicioCuenta = servicioCuenta;
-        this.redBancaria = RedBancaria.getInstance();
+        this.redBancaria = red;
     }
 
     public void depositar(Cuenta cuenta, double monto) {
