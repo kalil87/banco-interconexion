@@ -49,9 +49,15 @@ public class Cuenta {
     private void transferenciaExterna(String cbu, double monto) {
         try {
 
-            RedBancaria.getInstance().transferir(cbu, monto);
-            this.saldo -= monto;
-            System.out.println("Transferencia enviada. Su saldo actual es de: $" + this.saldo);
+            boolean ok = RedBancaria.getInstance().transferir(cbu, monto);
+            if (ok){
+                this.saldo -= monto;
+                System.out.println("Transferencia enviada. Su saldo actual es de: $" + this.saldo);
+
+            }
+            else
+                System.out.println("Cuenta no encontrada");
+
 
         } catch (RuntimeException e) {
             System.out.println("Error red bancaria: " + e.getMessage());

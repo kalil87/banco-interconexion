@@ -62,14 +62,11 @@ public class Banco implements MediadorBanco {
 
     @Override
     public void recibirTransferencia(String cbuDestino, double monto) {
-        for (Cuenta c : personas) {
+        for (int i = 1 ; i <= personas.size(); i++) {
+            Cuenta c = personas.get(i);
             if (c.cbu.equals(cbuDestino)) {
                 c.saldo += monto;
-                System.out.println("Se realizo la transferencia correctamente.");
-                break;
-            }
-            else {
-                System.out.println("Cuenta no encontrada");
+                return;
             }
         }
     }
