@@ -53,7 +53,7 @@ public class MenuPrincipal {
                 System.out.println("Ingrese contraseña");
                 String pass = sc.nextLine();
                 System.out.println("Ingrese CBU");
-                int cbu = sc.nextInt();
+                String cbu = sc.nextLine();
                 System.out.println("Ingrese tipo de cuenta \\ 1. Ahorro   2. Corriente");
                 int optipo = sc.nextInt();
 

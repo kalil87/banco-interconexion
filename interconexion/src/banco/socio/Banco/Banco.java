@@ -2,21 +2,30 @@ package banco.socio.Banco;
 import banco.socio.builders.BuilderCuenta;
 import banco.socio.builders.Director;
 import integracion.interfaz.MediadorBanco;
+import integracion.servicio.RedBancaria;
 
 import java.util.ArrayList;
 
 public class Banco implements MediadorBanco {
+    private static Banco instancia;
     public int sucursal;
     public ArrayList<Cuenta> personas = new ArrayList<>();
     Director director = new Director();
     BuilderCuenta builder = new BuilderCuenta();
 
 
-    public Banco (int sucursal, String nombreAdm, String direcAdm, String passAdm){
+    private Banco (int sucursal, String nombreAdm, String direcAdm, String passAdm, String cbuAdm){
         this.sucursal = sucursal;
-        director.constructCuentaAdmin(builder, nombreAdm, direcAdm, passAdm);
+        director.constructCuentaAdmin(builder, nombreAdm, direcAdm, passAdm, cbuAdm);
         Cuenta admin = builder.getCuenta();
+        admin.bancoCuenta = this;
         personas.add(admin);
+    }
+    public static Banco getInstance() {
+        if (instancia == null) {
+            instancia = new Banco(1, "admin", "dire", "admin", "000");
+        }
+        return instancia;
     }
 
     public void añadirCuenta(Cuenta c){
@@ -41,22 +50,30 @@ public class Banco implements MediadorBanco {
         }
     }
 
-    public boolean buscarCuenta( int cbu){
 
+    @Override
+    public boolean existeCuenta(String cbu) {
         for (Cuenta c : personas){
-            if (c.cbu == cbu)
+            if (c.cbu.equals(cbu))
                 return true;
         }
         return false;
     }
 
     @Override
-    public boolean existeCuenta(String cbu) {
-        return false;
-    }
-
-    @Override
     public void recibirTransferencia(String cbuDestino, double monto) {
-
+        for (Cuenta c : personas) {
+            if (c.cbu.equals(cbuDestino)) {
+                c.saldo += monto;
+                System.out.println("Se realizo la transferencia correctamente.");
+                break;
+            }
+            else {
+                System.out.println("Cuenta no encontrada");
+            }
+        }
     }
+
+
+
 }

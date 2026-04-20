@@ -10,7 +10,7 @@ public class Cuenta {
     public double saldo;
     public boolean activo = true;
     public Rol rol;
-    public int cbu;
+    public String cbu;
     public Banco bancoCuenta;
 
     public void mostrarInfo(){
@@ -20,9 +20,9 @@ public class Cuenta {
             System.out.println("Esta cuenta no se encuentra activa");
     }
 
-    public void tranferir(int cbu, int monto) {
+    public void tranferir(String cbu, int monto) {
 
-        boolean cuentaLocal = bancoCuenta.buscarCuenta(cbu);
+        boolean cuentaLocal = bancoCuenta.existeCuenta(cbu);
 
         if (!this.activo) {
             System.out.println("Tu cuenta está inhabilitada.");
@@ -36,7 +36,7 @@ public class Cuenta {
         if (cuentaLocal) {
             this.saldo -= monto;
             for (Cuenta c : bancoCuenta.personas) {
-                if (c.cbu == cbu) {
+                if (c.cbu.equals(cbu)) {
                     c.saldo += monto;
                     System.out.println("Se realizo la transferencia correctamente, saldo actual: $" + this.saldo);
                     break;
@@ -46,10 +46,10 @@ public class Cuenta {
             transferenciaExterna(cbu, monto);
         }
     }
-    private void transferenciaExterna(int cbu, double monto) {
+    private void transferenciaExterna(String cbu, double monto) {
         try {
 
-            RedBancaria.getInstance().transferir(String.valueOf(cbu), monto);
+            RedBancaria.getInstance().transferir(cbu, monto);
             this.saldo -= monto;
             System.out.println("Transferencia enviada. Su saldo actual es de: $" + this.saldo);
 

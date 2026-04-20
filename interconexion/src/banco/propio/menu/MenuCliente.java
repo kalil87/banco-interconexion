@@ -52,11 +52,11 @@ public class MenuCliente {
                 case 3 -> {
                     System.out.println("Monto:");
                     double monto = sc.nextDouble();
-
+                    sc.nextLine();
                     Cuenta origen = servicioUsuario.obtenerCuenta(usuario);
 
                     System.out.println("Cuenta destino numero:");
-                    sc.nextLine();
+
                     String numero = sc.nextLine();
 
                     servicioTransaccion.transferir(origen, numero, monto);

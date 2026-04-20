@@ -1,6 +1,7 @@
+package integracion;
+
 import banco.propio.app.config.InicializarDatos;
 import banco.propio.entidades.Banco;
-import integracion.MenuGeneral;
 import integracion.interfaz.MediadorBanco;
 import integracion.servicio.RedBancaria;
 
@@ -9,7 +10,7 @@ public class Main {
         InicializarDatos.cargar();
 
         MediadorBanco bancoKalil = Banco.getInstance();
-        MediadorBanco j = new banco.socio.Banco.Banco(1, "lucas","dire", "789");
+        MediadorBanco j = banco.socio.Banco.Banco.getInstance();
         RedBancaria red = RedBancaria.getInstance();
 
         red.registrarBanco(bancoKalil);

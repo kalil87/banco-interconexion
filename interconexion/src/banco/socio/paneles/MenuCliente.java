@@ -23,7 +23,7 @@ public class MenuCliente {
             switch (opcion){
                 case 1:
 
-                    int cbu;
+                    String cbu;
                     int monto;
 
 
@@ -32,7 +32,7 @@ public class MenuCliente {
                     sc.nextLine();
 
                     System.out.println("Escriba el nombre de la cuenta a la que desea tranferir");
-                    cbu = sc.nextInt();
+                    cbu = sc.nextLine();
 
                     cuenta.tranferir(cbu, monto);
 

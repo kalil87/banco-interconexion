@@ -30,7 +30,7 @@ public class BuilderCuenta implements Builder {
     public void setPass (String pass){
         this.cuenta.password = pass;
     }
-    public void setCbu (int cbu) {this.cuenta.cbu = cbu;}
+    public void setCbu (String cbu) {this.cuenta.cbu = cbu;}
     public void setBanco (Banco banco) {this.cuenta.bancoCuenta = banco;}
     public Cuenta getCuenta(){
         Cuenta cuenta = this.cuenta;
