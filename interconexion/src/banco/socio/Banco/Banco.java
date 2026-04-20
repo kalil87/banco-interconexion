@@ -1,9 +1,11 @@
 package banco.socio.Banco;
 import banco.socio.Builder.BuilderCuenta;
 import banco.socio.Builder.Director;
+import integracion.interfaz.MediadorBanco;
+
 import java.util.ArrayList;
 
-public class Banco {
+public class Banco implements MediadorBanco {
     public int sucursal;
     public ArrayList<Cuenta> personas = new ArrayList<>();
     Director director = new Director();
@@ -36,5 +38,15 @@ public class Banco {
             }
             System.out.println("El balance total de la sucursal es de: $" + saldoTotal);
         }
+    }
+
+    @Override
+    public boolean existeCuenta(String cbu) {
+        return false;
+    }
+
+    @Override
+    public void recibirTransferencia(String cbuDestino, double monto) {
+
     }
 }

@@ -86,9 +86,6 @@ public class ServicioCuenta {
 
     public Cuenta obtenerCuentaPorId(String numero) {
         Cuenta c = repoC.buscarPorId(numero);
-        if (c == null) {
-            throw new RuntimeException("Cuenta inexistente");
-        }
         return c;
     }
 

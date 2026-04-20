@@ -1,10 +1,6 @@
 package banco.propio.app;
 
 import banco.propio.app.config.ContextoApp;
-import banco.propio.app.config.InicializarDatos;
-import banco.propio.repositorios.RepositorioCuenta;
-import banco.propio.repositorios.RepositorioSucursal;
-import banco.propio.repositorios.RepositorioUsuario;
 import banco.propio.servicios.*;
 
 import java.util.Scanner;
