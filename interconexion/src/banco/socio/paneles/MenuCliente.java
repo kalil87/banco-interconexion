@@ -31,7 +31,7 @@ public class MenuCliente {
                     monto = sc.nextInt();
                     sc.nextLine();
 
-                    System.out.println("Escriba el nombre de la cuenta a la que desea tranferir");
+                    System.out.println("Escriba el CBU de la cuenta a la que desea tranferir");
                     cbu = sc.nextLine();
 
                     cuenta.tranferir(cbu, monto);

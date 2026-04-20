@@ -1,7 +1,6 @@
 package banco.propio.menu;
 
 import banco.propio.entidades.Cuenta;
-import banco.propio.entidades.Sucursal;
 import banco.propio.entidades.Usuario;
 import banco.propio.servicios.ServicioCuenta;
 import banco.propio.servicios.ServicioTransaccion;
@@ -20,6 +19,7 @@ public class MenuCliente {
             System.out.println("1 Depositar");
             System.out.println("2 Retirar");
             System.out.println("3 Transferir");
+            System.out.println("4 Consultar saldo");
             System.out.println("0 Salir");
 
             opcion = sc.nextInt();
@@ -31,7 +31,6 @@ public class MenuCliente {
                     double monto = sc.nextDouble();
 
                     Cuenta cuenta = servicioUsuario.obtenerCuenta(usuario);
-                    Sucursal sucursal = servicioCuenta.obtenerSucursal(cuenta);
 
                     servicioTransaccion.depositar(cuenta, monto);
                     System.out.println("Se ingresaron: $" + monto);
@@ -55,11 +54,21 @@ public class MenuCliente {
                     sc.nextLine();
                     Cuenta origen = servicioUsuario.obtenerCuenta(usuario);
 
-                    System.out.println("Cuenta destino numero:");
+                    System.out.println("CBU destino numero:");
 
                     String numero = sc.nextLine();
 
                     servicioTransaccion.transferir(origen, numero, monto);
+                }
+
+                case 4 -> {
+                    Cuenta cuenta = servicioUsuario.obtenerCuenta(usuario);
+
+                    double saldo = servicioCuenta.obtenerSaldo(cuenta);
+
+                    System.out.println("\n--- SALDO ACTUAL ---");
+                    System.out.println("Cuenta: " + cuenta.getId());
+                    System.out.println("Saldo disponible: $" + saldo);
                 }
             }
 
