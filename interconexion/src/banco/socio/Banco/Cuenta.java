@@ -21,7 +21,8 @@ public class Cuenta {
     }
 
     public void tranferir(int cbu, int monto) {
-        boolean cuentaLocal = bancoCuenta.buscarCuenta(bancoCuenta.personas, cbu);
+
+        boolean cuentaLocal = bancoCuenta.buscarCuenta(cbu);
 
         if (!this.activo) {
             System.out.println("Tu cuenta está inhabilitada.");
@@ -48,7 +49,7 @@ public class Cuenta {
     private void transferenciaExterna(int cbu, double monto) {
         try {
 
-            RedBancaria.getInstance().transferir(String.valueOf(this.cbu), monto);
+            RedBancaria.getInstance().transferir(String.valueOf(cbu), monto);
             this.saldo -= monto;
             System.out.println("Transferencia enviada. Su saldo actual es de: $" + this.saldo);
 

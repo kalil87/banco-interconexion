@@ -23,25 +23,19 @@ public class MenuCliente {
             switch (opcion){
                 case 1:
 
-                    String destinatario;
+                    int cbu;
                     int monto;
-                    boolean transferir = false;
+
 
                     System.out.println("Ingrese el monto a transferir");
                     monto = sc.nextInt();
                     sc.nextLine();
 
                     System.out.println("Escriba el nombre de la cuenta a la que desea tranferir");
-                    destinatario = sc.nextLine();
+                    cbu = sc.nextInt();
 
-                    for (Cuenta c : banco.personas){
-                        if (c.nombre.equals(destinatario)) {
-                            transferir = true;
-                            cuenta.tranferir(c.cbu, monto);
-                        }
-                    }
-                    if (!transferir)
-                        System.out.println("Cuenta no encontrada, intente nuevamente");
+                    cuenta.tranferir(cbu, monto);
+
                     break;
 
                 case 2:

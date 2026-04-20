@@ -1,9 +1,11 @@
 package banco.socio.Banco;
 import banco.socio.builders.BuilderCuenta;
 import banco.socio.builders.Director;
+import integracion.interfaz.MediadorBanco;
+
 import java.util.ArrayList;
 
-public class Banco {
+public class Banco implements MediadorBanco {
     public int sucursal;
     public ArrayList<Cuenta> personas = new ArrayList<>();
     Director director = new Director();
@@ -18,8 +20,8 @@ public class Banco {
     }
 
     public void añadirCuenta(Cuenta c){
-        personas.add(c);
         builder.setBanco(this);
+        personas.add(c);
         System.out.println("Usuario " + c.nombre + " registrado exitosamente");
     }
 
@@ -39,12 +41,22 @@ public class Banco {
         }
     }
 
-    public boolean buscarCuenta(ArrayList<Cuenta> cuentas, int cbu){
-        boolean cuentaEncontrada = false;
-        for (Cuenta c : cuentas){
+    public boolean buscarCuenta( int cbu){
+
+        for (Cuenta c : personas){
             if (c.cbu == cbu)
                 return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean existeCuenta(String cbu) {
+        return false;
+    }
+
+    @Override
+    public void recibirTransferencia(String cbuDestino, double monto) {
+
     }
 }
