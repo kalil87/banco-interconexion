@@ -1,13 +1,14 @@
 package integracion.servicio;
 
+import integracion.interfaz.BancoParticipante;
 import integracion.interfaz.MediadorBanco;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RedBancaria {
+public class RedBancaria implements MediadorBanco {
     private static RedBancaria instancia;
-    private final List<MediadorBanco> bancos = new ArrayList<>();
+    private final List<BancoParticipante> bancos = new ArrayList<>();
 
     private RedBancaria() {
 
@@ -20,13 +21,15 @@ public class RedBancaria {
         return instancia;
     }
 
-    public void registrarBanco(MediadorBanco banco) {
+    @Override
+    public void registrarBanco(BancoParticipante banco) {
         bancos.add(banco);
     }
 
+    @Override
     public boolean transferir(String cbuDestino, double monto) {
 
-        for (MediadorBanco banco : bancos) {
+        for (BancoParticipante banco : bancos) {
             if (banco.existeCuenta(cbuDestino)) {
                 banco.recibirTransferencia(cbuDestino, monto);
                 return true;
