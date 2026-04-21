@@ -1,15 +1,16 @@
 package banco.propio.servicios;
 
 import banco.propio.entidades.Cuenta;
+import integracion.interfaz.MediadorBanco;
 import integracion.servicio.RedBancaria;
 
 public class ServicioTransaccion {
     private ServicioCuenta servicioCuenta;
-    private RedBancaria redBancaria;
+    private MediadorBanco mediador;
 
-    public ServicioTransaccion(ServicioCuenta servicioCuenta, RedBancaria red) {
+    public ServicioTransaccion(ServicioCuenta servicioCuenta, MediadorBanco mediador) {
         this.servicioCuenta = servicioCuenta;
-        this.redBancaria = red;
+        this.mediador = mediador;
     }
 
     public void depositar(Cuenta cuenta, double monto) {
@@ -48,7 +49,7 @@ public class ServicioTransaccion {
 
             // EXTERNO
 
-            boolean ok = redBancaria.transferir(cbuDestino, monto);
+            boolean ok = mediador.transferir(cbuDestino, monto);
 
             if (ok) {
                 origen.setSaldo(origen.getSaldo() - monto);

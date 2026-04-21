@@ -2,9 +2,9 @@ package banco.propio.entidades;
 
 import banco.propio.app.config.ContextoApp;
 import banco.propio.servicios.*;
-import integracion.interfaz.MediadorBanco;
+import integracion.interfaz.BancoParticipante;
 
-public class Banco implements MediadorBanco {
+public class Banco implements BancoParticipante {
     private static Banco instancia;
     private String id;
     private final ServicioCuenta serviC;

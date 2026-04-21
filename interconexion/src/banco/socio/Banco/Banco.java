@@ -1,12 +1,11 @@
 package banco.socio.Banco;
 import banco.socio.builders.BuilderCuenta;
 import banco.socio.builders.Director;
-import integracion.interfaz.MediadorBanco;
-import integracion.servicio.RedBancaria;
+import integracion.interfaz.BancoParticipante;
 
 import java.util.ArrayList;
 
-public class Banco implements MediadorBanco {
+public class Banco implements BancoParticipante {
     private static Banco instancia;
     public int sucursal;
     public ArrayList<Cuenta> personas = new ArrayList<>();
