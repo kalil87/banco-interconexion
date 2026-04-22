@@ -1,8 +1,6 @@
-package banco.socio.builders;
+package banco.socio.builders; // Corrección: Debería haber una línea vacía después de la declaración del paquete
 import banco.socio.Banco.Rol;
-
-
-
+// Sugerencia: Para todos los métodos de construct...(), debería optarse por escribir el método entero o en Español, o en Inglés.
 public class Director {
     public void constructCuentaAhorro(BuilderCuenta builder, String nombre, String direccion, String pass, String cbu){
         builder.reset();
