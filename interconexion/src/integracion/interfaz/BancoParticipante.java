@@ -1,8 +1,6 @@
 package integracion.interfaz;
 
 public interface BancoParticipante {
-
-    boolean existeCuenta(String cbu);
-
+    boolean esCuentaValida(String cbu);
     void recibirTransferencia(String cbuDestino, double monto);
 }

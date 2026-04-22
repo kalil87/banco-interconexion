@@ -22,7 +22,7 @@ public class Cuenta {
 
     public void tranferir(String cbu, int monto) {
 
-        boolean cuentaLocal = bancoCuenta.existeCuenta(cbu);
+        boolean cuentaLocal = bancoCuenta.esCuentaValida(cbu);
 
         if (!this.activo) {
             System.out.println("Tu cuenta está inhabilitada.");

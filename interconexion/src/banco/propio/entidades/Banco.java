@@ -24,7 +24,7 @@ public class Banco implements BancoParticipante {
     }
 
     @Override
-    public boolean existeCuenta(String cbu) {
+    public boolean esCuentaValida(String cbu) {
         return serviC.obtenerCuentaPorId(cbu) != null;
     }
 

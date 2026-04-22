@@ -26,6 +26,15 @@ public class ServicioTransaccion {
         cuenta.setSaldo(cuenta.getSaldo() - monto);
     }
 
+    /**
+     * Realiza una transferencia interna o externa.
+     * Si la cuenta destino existe en el banco → interna.
+     * Si no existe → delega la transferencia al mediador.
+     *
+     * @param origen Cuenta origen
+     * @param cbuDestino CBU destino
+     * @param monto Monto a transferir
+     */
     public void transferir(Cuenta origen, String cbuDestino, double monto) {
 
         if (origen.getSaldo() < monto) {

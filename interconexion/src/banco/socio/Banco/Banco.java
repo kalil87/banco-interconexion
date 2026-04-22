@@ -51,7 +51,7 @@ public class Banco implements BancoParticipante {
 
 
     @Override
-    public boolean existeCuenta(String cbu) {
+    public boolean esCuentaValida(String cbu) {
         for (Cuenta c : personas){
             if (c.cbu.equals(cbu))
                 return true;

@@ -26,11 +26,18 @@ public class RedBancaria implements MediadorBanco {
         bancos.add(banco);
     }
 
+    /**
+     * Busca el banco que contiene la cuenta destino y delega la recepcion de transferencia.
+     *
+     * @param cbuDestino CBU destino
+     * @param monto Monto a transferir
+     * @return true si se encontró la cuenta y se transfirió, false si no existe o no esta habilitada
+     */
     @Override
     public boolean transferir(String cbuDestino, double monto) {
 
         for (BancoParticipante banco : bancos) {
-            if (banco.existeCuenta(cbuDestino)) {
+            if (banco.esCuentaValida(cbuDestino)) {
                 banco.recibirTransferencia(cbuDestino, monto);
                 return true;
             }

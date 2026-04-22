@@ -13,7 +13,7 @@ public class NavegadorMenus {
             ServicioUsuario servicioUsuario,
             ServicioCuenta servicioCuenta,
             ServicioTransaccion servicioTransaccion,
-            ServicioBanco servicioBanco,
+            ServicioResumenBanco servicioBanco,
             ServicioSucursal servicioSucursal) {
 
         Usuario usuario = MenuLogin.iniciar(servicioUsuario);
