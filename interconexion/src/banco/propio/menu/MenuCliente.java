@@ -22,7 +22,7 @@ public class MenuCliente {
             System.out.println("4 Consultar saldo");
             System.out.println("0 Salir");
 
-            opcion = sc.nextInt();
+            opcion = sc.nextInt(); //nextInt sin validación de int
 
             switch (opcion) {
 

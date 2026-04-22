@@ -25,7 +25,7 @@ public class MenuPrincipal {
 
         while(opcion != 3){
             imprimirMenu();
-            opcion = sc.nextInt();
+            opcion = sc.nextInt(); //nextInt sin validación de int
             sc.nextLine();
             opciones(opcion);
         }
@@ -51,7 +51,7 @@ public class MenuPrincipal {
                 System.out.println("Ingrese CBU");
                 String cbu = sc.nextLine();
                 System.out.println("Ingrese tipo de cuenta \\ 1. Ahorro   2. Corriente");
-                int optipo = sc.nextInt();
+                int optipo = sc.nextInt(); //nextInt sin validación de int, error de ortografía en el nombre de la variable.
 
                 if (optipo == 1 || optipo == 2){
                     if (optipo == 1){

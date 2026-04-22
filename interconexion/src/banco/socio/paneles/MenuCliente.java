@@ -17,7 +17,7 @@ public class MenuCliente {
             System.out.println("3. Depositar");
             System.out.println("4. Salir");
             System.out.println("Seleccione una opción");
-            opcion = sc.nextInt();
+            opcion = sc.nextInt(); //nextInt sin validación de int
 
             switch (opcion){
                 case 1:
@@ -25,7 +25,7 @@ public class MenuCliente {
                     int monto;
 
                     System.out.println("Ingrese el monto a transferir");
-                    monto = sc.nextInt();
+                    monto = sc.nextInt(); //nextInt sin validación de int
                     sc.nextLine();
 
                     System.out.println("Escriba el CBU de la cuenta a la que desea tranferir");
@@ -40,7 +40,7 @@ public class MenuCliente {
                     break;
                 case 3:
                     System.out.println("Ingrese monto a depositar");
-                    double montoDepo = sc.nextInt();
+                    double montoDepo = sc.nextInt(); //nextInt sin validación de int //también se podría usar nextDouble
                     cuenta.deposito(montoDepo);
                     System.out.println("Deposito exitoso, su nuevo saldo es de: $" + cuenta.saldo);
                     break;

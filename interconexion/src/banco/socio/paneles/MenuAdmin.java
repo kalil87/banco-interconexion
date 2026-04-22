@@ -18,7 +18,7 @@ public class MenuAdmin {
             System.out.println("3. Dar de baja cuentas");
             System.out.println("4. Salir");
             System.out.println("Seleccione una opción");
-            opcion = sc.nextInt();
+            opcion = sc.nextInt(); //nextInt sin validación de int
             sc.nextLine();
 
             switch (opcion){

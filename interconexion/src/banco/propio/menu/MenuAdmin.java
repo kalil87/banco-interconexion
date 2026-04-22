@@ -22,7 +22,7 @@ public class MenuAdmin {
             System.out.println("5 Cambiar de sucursal");
             System.out.println("0 Salir");
 
-            opcion = sc.nextInt();
+            opcion = sc.nextInt(); //nextInt sin validación de int
             sc.nextLine();
 
             switch (opcion) {
@@ -41,7 +41,7 @@ public class MenuAdmin {
                     System.out.print("Password: ");
                     String password = sc.nextLine();
 
-                    Usuario usuarioNuevo = servicioUsuario.crearUsuario(email, password);
+                    Usuario usuarioNuevo = servicioUsuario.crearUsuario(email, password); //Uso de factory 👍
                     servicioUsuario.validarUsuario(usuarioNuevo);
                     servicioUsuario.guardar(usuarioNuevo);
 
