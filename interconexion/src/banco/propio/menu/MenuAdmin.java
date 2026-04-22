@@ -1,7 +1,7 @@
 package banco.propio.menu;
 
 import banco.propio.entidades.*;
-import banco.propio.servicios.ServicioBanco;
+import banco.propio.servicios.ServicioResumenBanco;
 import banco.propio.servicios.ServicioCuenta;
 import banco.propio.servicios.ServicioSucursal;
 import banco.propio.servicios.ServicioUsuario;
@@ -9,7 +9,7 @@ import banco.propio.servicios.ServicioUsuario;
 import java.util.Scanner;
 
 public class MenuAdmin {
-    public static void iniciar(ServicioCuenta servicioCuenta, ServicioUsuario servicioUsuario, ServicioBanco servicioBanco, ServicioSucursal servicioSucursal) {
+    public static void iniciar(ServicioCuenta servicioCuenta, ServicioUsuario servicioUsuario, ServicioResumenBanco servicioBanco, ServicioSucursal servicioSucursal) {
         Scanner sc = new Scanner(System.in);
         int opcion;
 
@@ -22,7 +22,7 @@ public class MenuAdmin {
             System.out.println("5 Cambiar de sucursal");
             System.out.println("0 Salir");
 
-            opcion = sc.nextInt();
+            opcion = sc.nextInt(); //nextInt sin validación de int
             sc.nextLine();
 
             switch (opcion) {
@@ -41,7 +41,7 @@ public class MenuAdmin {
                     System.out.print("Password: ");
                     String password = sc.nextLine();
 
-                    Usuario usuarioNuevo = servicioUsuario.crearUsuario(email, password);
+                    Usuario usuarioNuevo = servicioUsuario.crearUsuario(email, password); //Uso de factory 👍
                     servicioUsuario.validarUsuario(usuarioNuevo);
                     servicioUsuario.guardar(usuarioNuevo);
 

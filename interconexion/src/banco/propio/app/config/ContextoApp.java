@@ -2,6 +2,7 @@ package banco.propio.app.config;
 
 import banco.propio.repositorios.*;
 import banco.propio.servicios.*;
+import integracion.servicio.RedBancaria;
 
 public class ContextoApp {
 
@@ -11,9 +12,9 @@ public class ContextoApp {
 
         private static final ServicioCuenta servicioCuenta = new ServicioCuenta(repoC, repoS);
         private static final ServicioUsuario servicioUsuario = new ServicioUsuario(repoU);
-        private static final ServicioBanco servicioBanco = new ServicioBanco(repoS);
+        private static final ServicioResumenBanco servicioBanco = new ServicioResumenBanco(repoS);
         private static final ServicioSucursal servicioSucursal = new ServicioSucursal(repoS, repoC);
-        private static final ServicioTransaccion servicioTransaccion = new ServicioTransaccion(servicioCuenta);
+        private static final ServicioTransaccion servicioTransaccion = new ServicioTransaccion(servicioCuenta, RedBancaria.getInstance());
 
         public static RepositorioCuenta getRepositorioCuenta() {
             return repoC;
@@ -35,7 +36,7 @@ public class ContextoApp {
             return servicioUsuario;
         }
 
-        public static ServicioBanco getServicioBanco() {
+        public static ServicioResumenBanco getServicioBanco() {
             return servicioBanco;
         }
 

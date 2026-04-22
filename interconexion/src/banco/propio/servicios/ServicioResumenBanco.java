@@ -3,10 +3,10 @@ package banco.propio.servicios;
 import banco.propio.entidades.Sucursal;
 import banco.propio.repositorios.RepositorioSucursal;
 
-public class ServicioBanco {
+public class ServicioResumenBanco {
     private RepositorioSucursal repoSucursal;
 
-    public ServicioBanco(RepositorioSucursal repoSucursal) {
+    public ServicioResumenBanco(RepositorioSucursal repoSucursal) {
         this.repoSucursal = repoSucursal;
     }
 

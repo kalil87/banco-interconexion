@@ -2,10 +2,9 @@ package banco.propio.entidades;
 
 import banco.propio.app.config.ContextoApp;
 import banco.propio.servicios.*;
-import integracion.interfaz.MediadorBanco;
-import integracion.servicio.RedBancaria;
+import integracion.interfaz.BancoParticipante;
 
-public class Banco implements MediadorBanco {
+public class Banco implements BancoParticipante {
     private static Banco instancia;
     private String id;
     private final ServicioCuenta serviC;
@@ -15,7 +14,6 @@ public class Banco implements MediadorBanco {
         this.id = "0123";
         this.serviC = ContextoApp.getServicioCuenta();
         this.serviT = ContextoApp.getServicioTransaccion();
-        RedBancaria.getInstance().registrarBanco(this);
     }
 
     public static Banco getInstance() {
@@ -26,7 +24,7 @@ public class Banco implements MediadorBanco {
     }
 
     @Override
-    public boolean existeCuenta(String cbu) {
+    public boolean esCuentaValida(String cbu) {
         return serviC.obtenerCuentaPorId(cbu) != null;
     }
 

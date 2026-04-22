@@ -1,7 +1,6 @@
 package banco.propio.menu;
 
 import banco.propio.entidades.Cuenta;
-import banco.propio.entidades.Sucursal;
 import banco.propio.entidades.Usuario;
 import banco.propio.servicios.ServicioCuenta;
 import banco.propio.servicios.ServicioTransaccion;
@@ -20,9 +19,10 @@ public class MenuCliente {
             System.out.println("1 Depositar");
             System.out.println("2 Retirar");
             System.out.println("3 Transferir");
+            System.out.println("4 Consultar saldo");
             System.out.println("0 Salir");
 
-            opcion = sc.nextInt();
+            opcion = sc.nextInt(); //nextInt sin validación de int
 
             switch (opcion) {
 
@@ -31,7 +31,6 @@ public class MenuCliente {
                     double monto = sc.nextDouble();
 
                     Cuenta cuenta = servicioUsuario.obtenerCuenta(usuario);
-                    Sucursal sucursal = servicioCuenta.obtenerSucursal(cuenta);
 
                     servicioTransaccion.depositar(cuenta, monto);
                     System.out.println("Se ingresaron: $" + monto);
@@ -43,7 +42,6 @@ public class MenuCliente {
                     double monto = sc.nextDouble();
 
                     Cuenta cuenta = servicioUsuario.obtenerCuenta(usuario);
-                    //Sucursal sucursal = servicioCuenta.obtenerSucursal(cuenta);
 
                     servicioTransaccion.retirar(cuenta, monto);
                     System.out.println("Se retiraron: $" + monto);
@@ -53,19 +51,24 @@ public class MenuCliente {
                 case 3 -> {
                     System.out.println("Monto:");
                     double monto = sc.nextDouble();
-
-                    Cuenta origen = servicioUsuario.obtenerCuenta(usuario);
-                    //Sucursal sucursal = servicioCuenta.obtenerSucursal(origen);
-
-                    System.out.println("Cuenta destino numero:");
                     sc.nextLine();
+                    Cuenta origen = servicioUsuario.obtenerCuenta(usuario);
+
+                    System.out.println("CBU destino numero:");
+
                     String numero = sc.nextLine();
 
-                    //Cuenta destino = servicioCuenta.obtenerCuentaPorId(numero);
                     servicioTransaccion.transferir(origen, numero, monto);
+                }
 
-                    System.out.println("Se transfirieron: $" + monto + " a la cuenta numero " + numero);
-                    System.out.println("Su saldo actual es de: $" + servicioCuenta.obtenerSaldo(origen));
+                case 4 -> {
+                    Cuenta cuenta = servicioUsuario.obtenerCuenta(usuario);
+
+                    double saldo = servicioCuenta.obtenerSaldo(cuenta);
+
+                    System.out.println("\n--- SALDO ACTUAL ---");
+                    System.out.println("Cuenta: " + cuenta.getId());
+                    System.out.println("Saldo disponible: $" + saldo);
                 }
             }
 

@@ -1,17 +1,15 @@
-package banco.socio.paneles;
+package banco.socio.paneles; // Corrección: Debería haber una línea vacía después de la declaración del paquete
 import banco.socio.Banco.Banco;
 import banco.socio.Banco.Cuenta;
 import banco.socio.builders.BuilderCuenta;
 import banco.socio.builders.Director;
 import banco.socio.Proxy.Proxy;
 import java.util.Scanner;
-
-
+// Corrección: Los imports deberían escribirse al revés: primero los componentes de Java y luego las paquetes del proyecto.
 public class MenuPrincipal {
-
-    private Banco banco;
-    private Proxy proxy;
-    private Scanner sc = new Scanner(System.in);
+    private Banco banco; // Sugerencia: La variable debería ser final.
+    private Proxy proxy; // Sugerencia: La variable debería ser final.
+    private Scanner sc = new Scanner(System.in); // Sugerencia: La variable del Scanner podría tener un nombre más descriptivo, ejemplo "teclado".
     Director director = new Director();
     BuilderCuenta builder = new BuilderCuenta();
     MenuCliente interfazCliente = new MenuCliente();
@@ -22,18 +20,17 @@ public class MenuPrincipal {
         this.proxy = proxy;
     }
 
-
     public void iniciar(){
         int opcion = 0;
 
         while(opcion != 3){
             imprimirMenu();
-            opcion = sc.nextInt();
+            opcion = sc.nextInt(); //nextInt sin validación de int
             sc.nextLine();
             opciones(opcion);
         }
     }
-    private void imprimirMenu(){
+    private void imprimirMenu(){ // Sugerencia: En vez de hacer 5 sout, podrían usar uno solo con la declaración de String multilínea """.
 
         System.out.println("\\--- APP BANCO ---");
         System.out.println("1. Crear cuenta");
@@ -44,8 +41,7 @@ public class MenuPrincipal {
 
     private void opciones(int opcion){
         switch (opcion){
-            case 1:
-
+            case 1: // Sugerencia: En vez de hacer 5 sout, podrían usar uno solo con la declaración de String multilínea """.
                 System.out.println("Ingrese nombre");
                 String nombre = sc.nextLine();
                 System.out.println("Ingrese direccion");
@@ -53,9 +49,9 @@ public class MenuPrincipal {
                 System.out.println("Ingrese contraseña");
                 String pass = sc.nextLine();
                 System.out.println("Ingrese CBU");
-                int cbu = sc.nextInt();
+                String cbu = sc.nextLine();
                 System.out.println("Ingrese tipo de cuenta \\ 1. Ahorro   2. Corriente");
-                int optipo = sc.nextInt();
+                int optipo = sc.nextInt(); //nextInt sin validación de int, error de ortografía en el nombre de la variable.
 
                 if (optipo == 1 || optipo == 2){
                     if (optipo == 1){
@@ -74,9 +70,7 @@ public class MenuPrincipal {
                 else
                     System.out.println("Opcion Incorrecta");
                 break;
-
             case 2:
-
                 System.out.println("Ingrese usuario");
                 String usuario = sc.nextLine();
                 System.out.println("Ingrese contraseña");
@@ -105,4 +99,3 @@ public class MenuPrincipal {
         }
     }
 }
-
